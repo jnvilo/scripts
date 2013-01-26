@@ -1,8 +1,14 @@
-import requests
-import zipfile
+#!/usr/bin/env python
+
 from urlparse import urlparse
 import os
 from shutil import rmtree
+import subprocess
+import zipfile
+from import_or_pip import import_or_pip
+
+requests = import_or_pip("requests")
+
 
 from os.path import expanduser
 
