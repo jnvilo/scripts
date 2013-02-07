@@ -1,10 +1,18 @@
-import requests
 import zipfile
 from urlparse import urlparse
 import os
 from shutil import rmtree
 
 from os.path import expanduser
+
+class InstallFromGithub(object):
+    
+    def __init__(self, username=None, password=None, repo=None):
+        
+        self.url = "https://github.com/" + username + "repo/archive/master.zip"
+        
+        
+        
 
 class DjangoInstaller(object):
 
@@ -101,54 +109,7 @@ class DjangoInstaller(object):
                 sys.stdout.flush()      
 
 
-
 if __name__ == "__main__":
 
     x = DjangoInstaller()
 
-
-"""
-
-home = expanduser("~")
-src_dir = os.path.join(home, "src")
-
-
-src_dir_exists = os.path.exists(src_dir)
-src_dir_is_dir = os.path.isdir(src_dir)
-
-
-if ( src_dir_exists == False) or (src_dir_is_dir == False):   
-    os.makedirs(src_dir)
-
-os.chdir(src_dir)
-
-
-url = "https://github.com/jnvilo/django/archive/master.zip"
-u = urlparse(url)
-filename = os.path.basename(u.path)
-
-path = os.path.join(src_dir, filename)
-unzipped_path = os.path.join(src_dir, "django-master")
-
-
-if os.path.exists(path) == False:
-
-    download = requests.get(url)
-    with open(path, "w") as f:
-        f.write(download.content)
-
-
-elif os.path.exists(path) and os.path.isfile(path):
-
-    if os.path.exists(unzipped_path):
-        rmtree(unzipped_path)
-
-    z = zipfile.ZipFile(path)
-    z.extractall(path)
-
-else:
-    print "{} was not found on server. ".format(path) 
-
-
-
-"""
