@@ -1,7 +1,18 @@
+<<<<<<< HEAD
 import zipfile
+=======
+#!/usr/bin/env python
+
+>>>>>>> 080c4626550cdb11fe2bc078b655fc117fb66ddd
 from urlparse import urlparse
 import os
 from shutil import rmtree
+import subprocess
+import zipfile
+from import_or_pip import import_or_pip
+
+requests = import_or_pip("requests")
+
 
 from os.path import expanduser
 
